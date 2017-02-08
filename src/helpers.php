@@ -65,7 +65,7 @@ if (!function_exists('fixNewLines')) {
 if (!function_exists('list_cleanup')) {
     function list_cleanup($array, $callback = null, $arguments = [])
     {
-        $array = (array)$array;
+        $array = (array) $array;
         if ($callback) {
             $array = array_map_args($array, $callback, $arguments);
         }
