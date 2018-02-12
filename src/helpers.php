@@ -78,6 +78,7 @@ if (!function_exists('str_uuid')) {
     function str_uuid($ordered = false)
     {
         $uuid = $ordered ? Illuminate\Support\Str::orderedUuid() : Illuminate\Support\Str::uuid();
+
         return (string) $uuid;
     }
 }
@@ -338,6 +339,7 @@ if (!function_exists('checkbox')) {
         if (in_array($value, ['false', 'off', 'no', '0', 0], true)) {
             return false;
         }
+
         return $default;
     }
 }
@@ -388,6 +390,7 @@ if (!function_exists('cache_remember')) {
     function cache_remember($key, $minutes, $callback, array $arguments = [], $driver = null)
     {
         $hash = array_hash($arguments);
+
         return Cache::driver($driver)->remember("$key.$hash", $minutes, function () use ($callback, $arguments) {
             return call_user_func_array($callback, $arguments);
         });
@@ -430,6 +433,7 @@ if (!function_exists('filesize_format')) {
         $units = $units[$locale ?: locale()] ?: $units['en'];
         $power = $size > 0 ? floor(log($size, 1024)) : 0;
         $number = $size / pow(1024, $power);
+
         return number($number, 1, $units[$power]);
     }
 }
@@ -443,6 +447,7 @@ if (!function_exists('name_initials')) {
         foreach ($parts as $part) {
             $result[] = mb_substr($part, 0, 1).'.';
         }
+
         return implode(' ', $result);
     }
 }
@@ -460,6 +465,7 @@ if (!function_exists('markdown')) {
             ->setUrlsLinked(!$ignore_links)
             ->setMarkupEscaped($escape_html);
         $markdown = $text_mode ? $markdown->text($content) : $markdown->line($content);
+
         return new Illuminate\Support\HtmlString($markdown);
     }
 }
