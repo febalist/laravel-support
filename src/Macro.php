@@ -23,6 +23,7 @@ class Macro
         foreach ($methods as $method) {
             Blueprint::macro($method, function (...$arguments) use ($method) {
                 $macro = new Macro($this);
+
                 return $macro->$method(...$arguments);
             });
         }
