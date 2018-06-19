@@ -681,8 +681,6 @@ if (!function_exists('if_then')) {
                 return $args[$i + 1];
             }
         }
-
-        return null;
     }
 }
 
@@ -699,8 +697,6 @@ if (!function_exists('switch_case')) {
                 return $args[$i + 1];
             }
         }
-
-        return null;
     }
 }
 
@@ -717,8 +713,6 @@ if (!function_exists('switch_case_strict')) {
                 return $args[$i + 1];
             }
         }
-
-        return null;
     }
 }
 
